@@ -1,0 +1,45 @@
+.main {
+  width: 1440px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notes {
+  display: flex;
+  gap: 100px;
+}
+
+.button{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 30px;
+}
+
+.button app-button {
+  margin-right: 6.5vw;
+}
+
+select {
+  border-radius: 50px;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+option {
+  background: var(--cinza) !important;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+option:hover {
+  color: var(--azul);
+}
+
+
