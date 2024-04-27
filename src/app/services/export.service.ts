@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ExportService {
 
-  url = 'http://localhost:5036/v1/export/';
+  url = 'https://takenotemxm.azurewebsites.net/v1/export/';
 
   constructor(private http: HttpClient) { }
 
