@@ -2,7 +2,5 @@
   <div>
     <h1>Todas Anotações</h1>
   </div>
-  <app-note-mini></app-note-mini>
-  <app-note-mini></app-note-mini>
-  <app-note-mini></app-note-mini>
+  <app-note-mini *ngFor="let note of notes" [note]="note"></app-note-mini>
 </div>
