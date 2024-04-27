@@ -1,0 +1,9 @@
+div{
+  width: 590px;
+  height: 600px;
+  border-radius: 20px;
+  background: var(--cinza);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
