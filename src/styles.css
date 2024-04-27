@@ -1,5 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+  --cinza: #8B9FBE60;
+  --branco: #CDE5EB;
+  --azul: #030943;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, rgb(129, 49, 190) 30%, #014A63, #00204e);
 }

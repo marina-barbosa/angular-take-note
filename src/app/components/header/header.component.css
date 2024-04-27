@@ -1,0 +1,30 @@
+div {
+  width: 1280px;
+  height: 90px;
+  border-radius: 20px;
+  background: var(--cinza);
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50px;
+  align-items: center;
+  color: var(--branco);
+  position: relative;
+}
+
+.fa-regular, .fa-solid{
+  color: var(--branco);
+  font-size: 36px;
+  cursor: pointer;
+}
+
+img{
+  width: 80px;
+}
+
+/* h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+} */
