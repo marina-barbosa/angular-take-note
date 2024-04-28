@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { CommonModule } from '@angular/common';
 
@@ -18,6 +18,7 @@ export class ShowComponent {
     noteService.selectedNote$.subscribe(note => {
       this.noteSelected = note;
       console.log('Note updated:', note);
+      console.log('NoteSelected updated:', this.noteSelected);
     });
 
   }
