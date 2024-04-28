@@ -1,7 +1,5 @@
 <div class="show">
   <div class="note">
-    <h2>{{ selectedNote.title }}</h2>
-    <hr>
-    <p>{{ selectedNote.content }}</p>
+    <p>Nota selecionada: {{ selectedNote$ | async }}</p>
   </div>
 </div>

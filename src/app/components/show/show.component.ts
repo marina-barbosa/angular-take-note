@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { CommonModule } from '@angular/common';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-show',
@@ -12,20 +13,24 @@ import { CommonModule } from '@angular/common';
 })
 export class ShowComponent {
 
-  selectedNote: any = {
-    title: 'Title',
-    content: 'text here'
-  };
+  selectedNote$: any;
 
   constructor(public noteService: NoteService) { }
 
-  ngOnInit(): void {
-    console.log('oninit1: ')
-    console.log(this.selectedNote)
-    this.noteService.selectedNote$.subscribe(note => {
-      this.selectedNote = note;
-    });
-    console.log('oninit2: ')
-    console.log(this.selectedNote)
+  // ngOnInit(): void {
+  //   this.noteService.selectedNote$.subscribe(note => {
+  //     this.selectedNote = note;
+  //   });
+  //   console.log('oninit2: ')
+  //   console.log(this.selectedNote)
+  //}
+
+  ngOnInit() {
+    this.noteService.selectedNote$.subscribe(note => this.receiveNote(note));
+  }
+
+  receiveNote(note: any) {
+    console.log('Nota recebida:', note);
+    // Use a nota recebida aqui, por exemplo, atualizando a interface do usuário
   }
 }
