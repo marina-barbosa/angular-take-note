@@ -1,0 +1,28 @@
+<div class="notes">
+  <div class="index">
+    <div>
+      <h1>Todas Anotações</h1>
+    </div>
+    <div class="mini-card" *ngFor="let note of (notes ?? []).slice().reverse()">
+      <span>
+        <h2 (click)="onNoteClick(note)">{{ note.title }}</h2>
+        <i class="fa-regular fa-rectangle-xmark" (click)="deleteNote(note.id)"></i>
+      </span>
+      <hr>
+      <p>{{ note.content }}</p>
+    </div>
+  </div>
+
+  <div class="show">
+    <div class="note" *ngIf="selectedNote">
+      <h1>{{ selectedNote.title }}</h1>
+      <hr>
+      <p>{{ selectedNote.content }}</p>
+    </div>
+    <div class="note" *ngIf="!selectedNote">
+      <h1>Title</h1>
+      <hr>
+      <p>No note selected</p>
+    </div>
+  </div>
+</div>

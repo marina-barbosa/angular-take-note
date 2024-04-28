@@ -13,18 +13,13 @@ div {
   position: relative;
 }
 
-.fa-regular, .fa-solid{
+.fa-regular,
+.fa-solid {
   color: var(--branco);
   font-size: 36px;
   cursor: pointer;
 }
 
-img{
+img {
   width: 80px;
 }
-
-/* h1 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-} */

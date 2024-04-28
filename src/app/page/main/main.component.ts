@@ -2,18 +2,17 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { ButtonComponent } from "../../components/button/button.component";
 import { FooterComponent } from "../../components/footer/footer.component";
-import { IndexComponent } from "../../components/index/index.component";
-import { ShowComponent } from "../../components/show/show.component";
 import { ExportService } from '../../services/export.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NotesComponent } from "../../components/notes/notes.component";
 
 @Component({
-    selector: 'app-main',
-    standalone: true,
-    templateUrl: './main.component.html',
-    styleUrl: './main.component.css',
-    imports: [HeaderComponent, ButtonComponent, FooterComponent, IndexComponent, ShowComponent, HttpClientModule],
-    providers: [ExportService]
+  selector: 'app-main',
+  standalone: true,
+  templateUrl: './main.component.html',
+  styleUrl: './main.component.css',
+  providers: [ExportService],
+  imports: [HeaderComponent, ButtonComponent, FooterComponent, HttpClientModule, NotesComponent]
 })
 export class MainComponent {
   constructor(private exportService: ExportService) { }

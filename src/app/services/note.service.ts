@@ -17,7 +17,7 @@ export class NoteService {
   getAllNotes(): Observable<any> {
     return this.http.get<any>(this.url).pipe(
       catchError((error: any) => {
-        console.error('An error occurred:', error);
+        console.error('Algo deu errado:', error);
         return throwError(() => new Error('Algo deu errado.'));
       })
     );
@@ -25,10 +25,26 @@ export class NoteService {
 
   selectNote(note: any): void {
     this._selectedNoteSource.next(note);
-    console.log('_select')
-    console.log(this._selectedNoteSource)
-    console.log('select$')
-    console.log(this.selectedNote$)
+    console.log('SERVICE:')
+    console.log(this.selectedNote$.subscribe(note => note))
+  }
+
+  createNote(note: any): Observable<any> {
+    return this.http.post(this.url, note).pipe(
+      catchError(error => {
+        console.error('Erro ao criar nota:', error);
+        return throwError(() => new Error('Erro ao criar nota'));
+      })
+    );
+  }
+
+  deleteNote(id: number): Observable<any> {
+    return this.http.delete(`${this.url}${id}`).pipe(
+      catchError(error => {
+        console.error('Erro ao deletar nota:', error);
+        return throwError(() => new Error('Erro ao deletar nota'));
+      })
+    );
   }
 
 }
