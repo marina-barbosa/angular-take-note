@@ -1,4 +1,4 @@
-div{
+.show{
   width: 590px;
   height: 600px;
   border-radius: 20px;
@@ -6,4 +6,27 @@ div{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.note{
+  border-radius: 20px;
+  width: 500px;
+  height: 520px;
+  background: var(--branco);
+  color: var(--azul);
+  padding: 3vh;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+hr {
+  border: 1px solid var(--cinza);
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+p {
+  font-size: 24px;
 }

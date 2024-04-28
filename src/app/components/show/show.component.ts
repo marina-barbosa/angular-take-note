@@ -20,5 +20,7 @@ export class ShowComponent {
     this.noteService.selectedNote$.subscribe(note => {
       this.selectedNote = note;
     });
+    console.log('oninit: ')
+    console.log(this.selectedNote)
   }
 }
