@@ -14,7 +14,7 @@ export class ShowComponent {
 
   selectedNote: any;
 
-  constructor(private noteService: NoteService) { }
+  constructor(public noteService: NoteService) { }
 
   ngOnInit(): void {
     this.noteService.selectedNote$.subscribe(note => {
