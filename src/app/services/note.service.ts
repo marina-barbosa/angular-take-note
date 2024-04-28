@@ -25,12 +25,6 @@ export class NoteService {
 
   selectNote(note: any): void {
     this.selectedNoteSource.next(note);
-    console.log('note')
-    console.log(note)
-    console.log('select$$$')
-    console.log(this.selectedNote$)
-    console.log('selectedNoteSource')
-    console.log(this.selectedNoteSource)
   }
 
 }
