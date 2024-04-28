@@ -1,3 +1,7 @@
 <div>
-  <app-note *ngIf="selectedNote" [note]="selectedNote"></app-note>
+  <div>
+    <h2>{{ selectedNote?.title ?? 'Título' }}</h2>
+    <hr>
+    <p>{{ selectedNote?.content ?? ' ' }}</p>
+  </div>
 </div>
