@@ -12,10 +12,4 @@ import { CommonModule } from '@angular/common';
 })
 export class NoteMiniComponent {
   @Input() note: any;
-
-  constructor(private noteService: NoteService) { }
-
-  onNoteClick(): void {
-    this.noteService.selectNote(this.note);
-  }
 }

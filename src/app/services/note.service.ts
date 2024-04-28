@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,6 @@ import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 export class NoteService {
 
   url = 'https://takenotemxm.azurewebsites.net/v1/note/';
-
-  private selectedNoteSource = new BehaviorSubject<any>(null);
-  selectedNote$ = this.selectedNoteSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -21,9 +18,5 @@ export class NoteService {
         return throwError(() => new Error('Algo deu errado.'));
       })
     );
-  }
-
-  selectNote(note: any): void {
-    this.selectedNoteSource.next(note);
   }
 }
