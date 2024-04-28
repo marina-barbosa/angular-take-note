@@ -15,9 +15,12 @@
 
   <div class="show">
     <div class="note" *ngIf="selectedNote">
-      <h1>{{ selectedNote.title }}</h1>
+      <div>
+        <i class="fa-regular fa-floppy-disk" [ngClass]="{'disabled': !isNoteChanged}" (click)="saveNote()"></i>
+        <textarea class="title" [(ngModel)]="selectedNote.title" (input)="onNoteChange()"></textarea>
+      </div>
       <hr>
-      <p>{{ selectedNote.content }}</p>
+      <textarea class="content" [(ngModel)]="selectedNote.content" (input)="onNoteChange()"></textarea>
     </div>
     <div class="note" *ngIf="!selectedNote">
       <h1>Title</h1>

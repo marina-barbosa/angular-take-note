@@ -88,19 +88,47 @@
   height: 520px;
   background: var(--branco);
   color: var(--azul);
-  padding: 3vh;
+  padding:  3vh;
 }
 
-.show h1 {
+.show .note div{
+  display: flex;
+  align-items: center;
+}
+
+
+.show .title {
   font-size: 32px;
+  font-weight: 700;
+  border: 0;
+  background: var(--branco);
+  width: 90%;
+  height: 45px;
+  margin-left: -35px;
+}
+
+.fa-floppy-disk {
+  position: relative;
+  cursor: pointer;
+  font-size: 36px;
+  left: calc(100% - 35px);
+}
+
+.disabled {
+  opacity: 0.1;
+  pointer-events: none
 }
 
 .show hr {
   border: 1px solid var(--cinza);
-  margin-top: 1vh;
   margin-bottom: 1vh;
 }
 
-.show p {
+.show .content {
   font-size: 24px;
+  border: 0;
+  outline: 0;
+  background: var(--branco);
+  width: 100%;
+  height: 85%;
 }

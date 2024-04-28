@@ -38,6 +38,15 @@ export class NoteService {
     );
   }
 
+  updateNote(note: any): Observable<any> {
+    return this.http.put(`${this.url}${note.id}`, note).pipe(
+      catchError(error => {
+        console.error('Erro ao atualizar nota:', error);
+        return throwError(() => new Error('Erro ao atualizar nota'));
+      })
+    );
+  }
+
   deleteNote(id: number): Observable<any> {
     return this.http.delete(`${this.url}${id}`).pipe(
       catchError(error => {
@@ -46,5 +55,6 @@ export class NoteService {
       })
     );
   }
+
 
 }

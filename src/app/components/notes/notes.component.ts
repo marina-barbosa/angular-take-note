@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../../services/note.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-notes',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   providers: [NoteService],
   templateUrl: './notes.component.html',
   styleUrl: './notes.component.css'
@@ -13,6 +14,9 @@ import { NoteService } from '../../services/note.service';
 export class NotesComponent implements OnInit {
   notes: any;
   selectedNote: any;
+
+  isNoteChanged = false;
+  originalNote: any;
 
   constructor(private noteService: NoteService) { }
 
@@ -32,6 +36,9 @@ export class NotesComponent implements OnInit {
   onNoteClick(note: any): void {
     this.noteService.selectNote(note);
     console.log(note)
+
+    this.originalNote = { ...note };
+    this.selectedNote = note;
   }
 
   deleteNote(id: number): void {
@@ -46,4 +53,21 @@ export class NotesComponent implements OnInit {
     });
   }
 
+  onNoteChange(): void {
+    this.isNoteChanged = JSON.stringify(this.selectedNote) !== JSON.stringify(this.originalNote);
+
+  }
+
+  saveNote(): void {
+    this.noteService.updateNote(this.selectedNote).subscribe({
+      next: () => {
+        console.log('Nota atualizada com sucesso');
+        this.isNoteChanged = false;
+        this.loadNotes();
+      },
+      error: (error) => {
+        console.error('Erro ao atualizar nota:', error);
+      }
+    });
+  }
 }
