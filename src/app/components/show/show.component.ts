@@ -12,15 +12,20 @@ import { CommonModule } from '@angular/common';
 })
 export class ShowComponent {
 
-  selectedNote: any;
+  selectedNote: any = {
+    title: 'Title',
+    content: 'text here'
+  };
 
   constructor(public noteService: NoteService) { }
 
   ngOnInit(): void {
+    console.log('oninit1: ')
+    console.log(this.selectedNote)
     this.noteService.selectedNote$.subscribe(note => {
       this.selectedNote = note;
     });
-    console.log('oninit: ')
+    console.log('oninit2: ')
     console.log(this.selectedNote)
   }
 }

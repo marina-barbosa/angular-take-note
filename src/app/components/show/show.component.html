@@ -1,7 +1,7 @@
 <div class="show">
   <div class="note">
-    <h2>{{ (noteService.selectedNote$ | async)?.title ?? 'Título' }}</h2>
+    <h2>{{ selectedNote.title }}</h2>
     <hr>
-    <p>{{ (noteService.selectedNote$ | async)?.content ?? ' ' }}</p>
+    <p>{{ selectedNote.content }}</p>
   </div>
 </div>
