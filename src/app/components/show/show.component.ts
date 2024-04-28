@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { CommonModule } from '@angular/common';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-show',
@@ -11,20 +10,16 @@ import { Subscription } from 'rxjs';
   imports: [CommonModule],
   providers: [NoteService]
 })
-export class ShowComponent implements OnDestroy {
-  subscription: Subscription | undefined;
+export class ShowComponent {
+  noteSelected: any = null
 
-  constructor(private noteService: NoteService) {
-    this.subscription = this.noteService.selectedNote$.subscribe(note => {
-      if (note) {
-        console.log('Note updated:', note);
-      }
+  constructor(noteService: NoteService) {
+
+    noteService.selectedNote$.subscribe(note => {
+      this.noteSelected = note;
+      console.log('Note updated:', note);
     });
+
   }
 
-  ngOnDestroy() {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
 }

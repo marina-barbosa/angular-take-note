@@ -9,8 +9,8 @@ export class NoteService {
 
   url = 'https://takenotemxm.azurewebsites.net/v1/note/';
 
-  private selectedNoteSource = new BehaviorSubject<any>(null);
-  selectedNote$ = this.selectedNoteSource.asObservable();
+  _selectedNoteSource = new BehaviorSubject<any>(null);
+  selectedNote$ = this._selectedNoteSource.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -24,7 +24,7 @@ export class NoteService {
   }
 
   selectNote(note: any): void {
-    this.selectedNoteSource.next(note);
+    this._selectedNoteSource.next(note);
   }
 
 }
