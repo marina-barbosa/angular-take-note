@@ -16,6 +16,5 @@ export class NoteMiniComponent {
 
   onNoteClick(): void {
     this.noteService.selectNote(this.note);
-    console.log(this.note)
   }
 }

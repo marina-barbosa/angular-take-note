@@ -24,6 +24,7 @@ export class NoteService {
   }
 
   selectNote(note: any): void {
+    console.log(note)
     this.selectedNoteSource.next(note);
   }
 
