@@ -19,7 +19,16 @@ export class ShowComponent {
       this.noteSelected = note;
       console.log('Note updated:', note);
       console.log('NoteSelected updated:', this.noteSelected);
+      console.log(noteService.selectedNote$)
     });
+
+    var teste = noteService.selectedNote$.subscribe(note => {
+      this.noteSelected = note;
+      console.log('nsteste$', noteService.selectedNote$)
+      console.log('teste', teste)
+    });
+
+    console.log('TESTEfina', teste)
 
   }
 
