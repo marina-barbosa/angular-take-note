@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-show',
@@ -10,17 +11,20 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   providers: [NoteService]
 })
-export class ShowComponent implements OnInit {
+export class ShowComponent implements OnDestroy {
+  subscription: Subscription | undefined;
 
-  selectedNote: any = null;
-
-  constructor(private noteService: NoteService) { }
-
-  ngOnInit(): void {
-    this.selectedNote = this.noteService.selectedNote$.subscribe(note => {
-      this.selectedNote = note
-      console.log(this.selectedNote);
+  constructor(private noteService: NoteService) {
+    this.subscription = this.noteService.selectedNote$.subscribe(note => {
+      if (note) {
+        console.log('Note updated:', note);
+      }
     });
   }
 
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 }
