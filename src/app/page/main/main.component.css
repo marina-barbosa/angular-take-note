@@ -1,5 +1,7 @@
 .main {
-  width: 1440px;
+  max-width: 1440px;
+  width: 100vw;
+  overflow-x: hidden;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -40,4 +42,11 @@ option {
 
 option:hover {
   color: var(--azul);
+}
+
+
+@media screen and (max-width: 1320px) {
+  .button {
+    margin-bottom: 30px;
+  }
 }

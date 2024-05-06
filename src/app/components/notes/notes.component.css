@@ -136,3 +136,12 @@
   width: 100%;
   height: 85%;
 }
+
+@media screen and (max-width: 1320px) {
+  .notes {
+    flex-direction: column;
+  }
+  .show{
+    margin-bottom: 30px;
+  }
+}

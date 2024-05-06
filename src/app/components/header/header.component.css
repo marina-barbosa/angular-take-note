@@ -23,3 +23,13 @@ div {
 img {
   width: 80px;
 }
+
+@media screen and (max-width: 1350px) {
+  div {
+    width: 90vw;
+  }
+}
+
+
+
+
