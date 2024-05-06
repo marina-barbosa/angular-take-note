@@ -7,7 +7,8 @@ import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 })
 export class NoteService {
 
-  url = 'https://takenotemxm.azurewebsites.net/v1/note/';
+  // url = 'https://takenotemxm.azurewebsites.net/v1/note/';
+  url = 'http://localhost:5036/v1/note/';
 
   _selectedNoteSource = new BehaviorSubject<any>(null);
   public selectedNote$ = this._selectedNoteSource.asObservable();
